@@ -252,7 +252,7 @@ export default function Home() {
           <div className="mt-14 border-t border-[#211c17]/14">
             <Link
               href="/ecosystem"
-              className="group grid overflow-hidden bg-[#203428] text-[#fffaf2] transition-colors hover:bg-[#294333] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315140] md:grid-cols-[1.1fr_0.9fr]"
+              className="motion-pathway-enter group grid overflow-hidden bg-[#203428] text-[#fffaf2] transition-colors hover:bg-[#294333] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315140] md:grid-cols-[1.1fr_0.9fr]"
             >
               <div className="relative aspect-4/3 overflow-hidden bg-[#d5c9b7] md:aspect-auto md:min-h-105">
                 <Image
@@ -276,8 +276,8 @@ export default function Home() {
                 <p className="mt-5 max-w-xl text-base leading-7 text-white/78">
                   {studio.description}
                 </p>
-                <span className="mt-8 inline-flex w-fit items-center border-b border-[#d8a15d] pb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#f1bd7d]">
-                  Explore the ecosystem <span className="ml-3" aria-hidden="true">→</span>
+                <span className="motion-pathway-cue mt-8 inline-flex w-fit items-center border-b border-[#d8a15d] pb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#f1bd7d]">
+                  Open the 6-initiative hub <span className="motion-pathway-arrow ml-3" aria-hidden="true">→</span>
                 </span>
               </div>
             </Link>
@@ -298,7 +298,7 @@ export default function Home() {
                     {lane.initiatives.map((initiative) => (
                       <article
                         key={initiative.name}
-                        className="border-t border-[#211c17]/14 py-5 last:pb-0"
+                        className="motion-card-enter border-t border-[#211c17]/14 py-5 last:pb-0"
                       >
                         <h4 className="text-lg font-semibold text-[#211c17]">
                           {initiative.name}
@@ -346,16 +346,16 @@ export default function Home() {
               </p>
               <Link
                 href="/work"
-                className="mt-5 inline-flex text-sm font-semibold uppercase tracking-[0.12em] text-[#315140] transition hover:text-[#8d5a2b]"
+                className="motion-pathway-enter motion-pathway-cue mt-5 inline-flex min-h-12 items-center gap-3 border border-[#315140]/25 bg-[#fffaf2]/40 px-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#315140] transition hover:border-[#315140]/60 hover:bg-[#fffaf2] hover:text-[#8d5a2b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315140]"
               >
-                View selected work <span className="ml-3" aria-hidden="true">→</span>
+                Open project slideshow <span className="motion-pathway-arrow" aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {workProjects.map((project) => (
-              <article key={project.title} className="group">
+              <article key={project.title} className="motion-card-enter motion-card-surface group">
                 <div className="relative aspect-4/5 overflow-hidden bg-[#d5c9b7]">
                   <Image
                     src={project.images[0].src}

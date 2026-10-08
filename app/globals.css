@@ -70,6 +70,30 @@ html {
   }
 }
 
+@keyframes card-slide-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--card-shift, 0), 18px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pathway-spotlight-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .motion-page-enter {
   animation: page-enter 520ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
 }
@@ -88,6 +112,51 @@ html {
     animation-timeline: view();
     animation-range: entry 0% entry 24%;
   }
+
+  .motion-card-enter {
+    animation: card-slide-enter linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 34%;
+  }
+
+  .motion-card-enter:nth-child(odd) {
+    --card-shift: -24px;
+  }
+
+  .motion-card-enter:nth-child(even) {
+    --card-shift: 24px;
+  }
+
+  .motion-pathway-enter {
+    animation: pathway-spotlight-enter linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 44%;
+  }
+}
+
+@media (max-width: 767px) {
+  .motion-card-enter:nth-child(n) {
+    --card-shift: 0px;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .motion-pathway-arrow {
+    display: inline-block;
+    transition: transform 220ms cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+
+  .motion-pathway-cue:hover .motion-pathway-arrow {
+    transform: translateX(4px);
+  }
+
+  .motion-card-surface {
+    transition: transform 280ms cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+
+  .motion-card-surface:hover {
+    transform: translateY(-3px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -105,7 +174,10 @@ html {
   .motion-page-enter,
   .motion-content-enter,
   .motion-image-enter,
-  .motion-scroll-enter {
+  .motion-scroll-enter,
+  .motion-card-enter,
+  .motion-card-surface,
+  .motion-pathway-enter {
     animation: none;
     opacity: 1;
     transform: none;
