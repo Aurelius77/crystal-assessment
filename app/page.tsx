@@ -90,7 +90,7 @@ const principles = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f6f1e9] text-[#211c17]">
+    <main className="motion-page-enter min-h-screen bg-[#f6f1e9] text-[#211c17]">
       <section className="relative isolate min-h-screen overflow-hidden bg-[#1d1a16] text-white">
         <Image
           src="/Crystal_s pictures/Earthy Editorial Portrait by African Architecture.png"
@@ -167,7 +167,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-[#211c17]/15 bg-[#fffaf2]">
+      <section className="motion-scroll-enter border-y border-[#211c17]/15 bg-[#fffaf2]">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 py-7 sm:px-8 md:grid-cols-3 lg:px-10">
           {stats.map((stat) => (
             <div key={stat.label} className="border-l border-[#211c17]/15 pl-5">
@@ -182,7 +182,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="bg-[#f6f1e9] py-20 sm:py-28">
+      <section id="about" className="motion-scroll-enter bg-[#f6f1e9] py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1fr] lg:px-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#8d5a2b]">
@@ -230,7 +230,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ecosystem" className="bg-[#fffaf2] py-20 sm:py-28">
+      <section id="ecosystem" className="motion-scroll-enter bg-[#fffaf2] py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1fr]">
             <div>
@@ -327,7 +327,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="bg-[#e8dfd1] py-20 sm:py-28">
+      <section id="work" className="motion-scroll-enter bg-[#e8dfd1] py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
@@ -382,7 +382,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#203428] py-20 text-[#fffaf2] sm:py-28">
+      <section className="motion-scroll-enter bg-[#203428] py-20 text-[#fffaf2] sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.68fr_1fr] lg:px-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#d8a15d]">
@@ -436,7 +436,7 @@ export default function Home() {
 
       <PathwayGuide />
 
-      <section id="contact" className="bg-[#f6f1e9] py-20 sm:py-28">
+      <section id="contact" className="motion-scroll-enter bg-[#f6f1e9] py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_0.74fr] lg:px-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#8d5a2b]">

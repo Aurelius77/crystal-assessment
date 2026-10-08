@@ -53,7 +53,7 @@ export default function PathwayGuide() {
   const activePathway = pathways[activeIndex];
 
   return (
-    <section id="pathways" className="bg-[#203428] py-20 text-[#fffaf2] sm:py-28">
+    <section id="pathways" className="motion-scroll-enter bg-[#203428] py-20 text-[#fffaf2] sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:gap-16">
           <div>
@@ -98,49 +98,50 @@ export default function PathwayGuide() {
             </nav>
           </div>
 
-          <div
-            aria-live="polite"
-            aria-atomic="true"
-            className="flex min-h-[340px] flex-col justify-between gap-10 bg-[#fffaf2] p-6 text-[#211c17] sm:p-9 lg:min-h-[430px] lg:p-12"
-          >
-            <div>
-              <div className="flex items-start justify-between gap-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8d5a2b]">
-                  {activePathway.audience}
-                </p>
-                <p className="text-sm font-semibold tabular-nums text-[#315140]">
-                  {String(activeIndex + 1).padStart(2, "0")} / {String(pathways.length).padStart(2, "0")}
-                </p>
-              </div>
-              <h3 className="mt-8 max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
-                {activePathway.action}
-              </h3>
-              <p className="mt-5 max-w-xl text-base leading-7 text-[#65584b]">
-                {activePathway.detail}
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <a
-                href={activePathway.href}
-                target={activePathway.href.startsWith("https://") ? "_blank" : undefined}
-                rel={activePathway.href.startsWith("https://") ? "noreferrer" : undefined}
-                className="inline-flex min-h-12 items-center justify-center bg-[#211c17] px-5 text-sm font-semibold uppercase tracking-[0.1em] text-white transition hover:bg-[#315140] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315140]"
+            <div aria-live="polite" aria-atomic="true">
+              <div
+                key={activeIndex}
+                className="motion-content-enter flex min-h-85 flex-col justify-between gap-10 bg-[#fffaf2] p-6 text-[#211c17] sm:p-9 lg:min-h-107.5 lg:p-12"
               >
-                {activePathway.cta}
-              </a>
-              {activePathway.secondaryHref && activePathway.secondaryCta && (
-                <a
-                  href={activePathway.secondaryHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sm font-semibold text-[#315140] underline decoration-[#315140]/40 underline-offset-4 transition hover:text-[#8d5a2b]"
-                >
-                  {activePathway.secondaryCta}
-                </a>
-              )}
+                <div>
+                  <div className="flex items-start justify-between gap-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8d5a2b]">
+                      {activePathway.audience}
+                    </p>
+                    <p className="text-sm font-semibold tabular-nums text-[#315140]">
+                      {String(activeIndex + 1).padStart(2, "0")} / {String(pathways.length).padStart(2, "0")}
+                    </p>
+                  </div>
+                  <h3 className="mt-8 max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
+                    {activePathway.action}
+                  </h3>
+                  <p className="mt-5 max-w-xl text-base leading-7 text-[#65584b]">
+                    {activePathway.detail}
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                  <a
+                    href={activePathway.href}
+                    target={activePathway.href.startsWith("https://") ? "_blank" : undefined}
+                    rel={activePathway.href.startsWith("https://") ? "noreferrer" : undefined}
+                    className="inline-flex min-h-12 items-center justify-center bg-[#211c17] px-5 text-sm font-semibold uppercase tracking-widest text-white transition hover:bg-[#315140] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315140]"
+                  >
+                    {activePathway.cta}
+                  </a>
+                  {activePathway.secondaryHref && activePathway.secondaryCta && (
+                    <a
+                      href={activePathway.secondaryHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-semibold text-[#315140] underline decoration-[#315140]/40 underline-offset-4 transition hover:text-[#8d5a2b]"
+                    >
+                      {activePathway.secondaryCta}
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </section>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <main className="min-h-screen bg-[#f6f1e9] text-[#211c17]">
+    <main className="motion-page-enter min-h-screen bg-[#f6f1e9] text-[#211c17]">
       <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
         <Link
           href="/"

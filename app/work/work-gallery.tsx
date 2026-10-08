@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { workProjects } from "./work-data";
 
 export default function WorkGallery() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
   const activeProject = workProjects[activeProjectIndex];
   const activeImage = activeProject.images[activeImageIndex];
 
@@ -57,7 +58,20 @@ export default function WorkGallery() {
         <figure
           aria-live="polite"
           aria-atomic="true"
-          className="relative aspect-4/3 bg-[#211c17] lg:aspect-auto lg:min-h-140"
+          className="relative aspect-4/3 touch-pan-y bg-[#211c17] lg:aspect-auto lg:min-h-140"
+          onTouchStart={(event) => {
+            touchStartX.current = event.touches[0]?.clientX ?? null;
+          }}
+          onTouchEnd={(event) => {
+            const startX = touchStartX.current;
+            const endX = event.changedTouches[0]?.clientX;
+            touchStartX.current = null;
+
+            if (startX === null || endX === undefined) return;
+
+            const distance = endX - startX;
+            if (Math.abs(distance) > 48) changeImage(distance < 0 ? 1 : -1);
+          }}
         >
           <Image
             key={activeImage.src}
@@ -66,7 +80,7 @@ export default function WorkGallery() {
             fill
             priority={activeProjectIndex === 0 && activeImageIndex === 0}
             sizes="(max-width: 1024px) 100vw, 65vw"
-            className="object-contain"
+            className="object-contain motion-image-enter"
           />
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-[#211c17]/80 to-transparent p-4 sm:p-6">
             <figcaption className="max-w-[70%] text-sm leading-5 text-white sm:text-base">
@@ -96,7 +110,10 @@ export default function WorkGallery() {
           </div>
         </figure>
 
-          <div className="flex flex-col justify-between gap-10 px-6 py-8 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+          <div
+            key={activeProject.slug}
+            className="motion-content-enter flex flex-col justify-between gap-10 px-6 py-8 sm:px-10 sm:py-12 lg:px-12 lg:py-14"
+          >
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d8a15d]">
                 {activeProject.type} / {activeProject.location}
