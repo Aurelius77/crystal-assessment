@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import PathwayGuide from "./pathway-guide";
+import { workProjects } from "./work/work-data";
 
 const stats = [
   { value: "100k+", label: "sqm designed and coordinated" },
@@ -6,127 +9,75 @@ const stats = [
   { value: "7", label: "project stages from brief to handover" },
 ];
 
-const ecosystem = [
-  {
-    eyebrow: "Architecture / Interiors / Urban design",
-    name: "Studio COKA",
-    status: "Live studio",
-    description:
-      "A climate-responsive design-build studio in Enugu working across architecture, interior design, and urban design. Studio COKA takes projects from early brief to delivery, with a focus on comfort, performance, identity, and craft.",
-    audience:
-      "For private clients, developers, institutions, and teams building homes, hospitality, healthcare, civic, commercial, or mixed-use spaces.",
-    href: "https://studiocoka.com/",
-    cta: "Visit Studio COKA",
-  },
-  {
-    eyebrow: "Furniture / Product design",
-    name: "ELEvated",
-    status: "Product brand",
-    description:
-      "A furniture and product design lane for functional pieces rooted in African context, material intelligence, and everyday use. It extends Crystal's spatial thinking into objects people live with closely.",
-    audience:
-      "For homeowners, hospitality spaces, developers, and design-conscious buyers looking for warm, useful, well-made pieces.",
-    href: "#contact",
-    cta: "Enquire about ELEvated",
-  },
-  {
-    eyebrow: "Education / Media / Professional growth",
-    name: "The Effective Architect",
-    status: "Education platform",
-    description:
-      "A learning and media platform for architects and built-environment professionals, sharing frameworks on climate-responsive design, career growth, practice-building, and better African cities.",
-    audience:
-      "For students, young architects, designers, and professionals who want to design with more clarity, context, and responsibility.",
-    href: "https://lnkd.in/emqe3r9U",
-    cta: "Join the newsletter",
-  },
-  {
-    eyebrow: "Education access / Opportunity",
-    name: "AKO Alliance",
-    status: "Impact initiative",
-    description:
-      "An education-focused initiative created to help children and young people access opportunity, return to school, support family stability, and build stronger futures.",
-    audience:
-      "For partners, donors, volunteers, and collaborators interested in practical education access and youth opportunity.",
-    href: "#contact",
-    cta: "Partner with AKO",
-  },
-  {
-    eyebrow: "Faith / Youth / Formation",
-    name: "Alive and Free",
-    status: "Movement",
-    description:
-      "A Christian youth movement creating spaces for honest conversations, worship, restoration, identity, purpose, healing, and life in Christ.",
-    audience:
-      "For young people, churches, communities, and partners supporting spiritual growth and purpose discovery.",
-    href: "#contact",
-    cta: "Connect with the movement",
-  },
-  {
-    eyebrow: "Research / Writing / Speaking",
-    name: "Crystal Kizor",
-    status: "Personal platform",
-    description:
-      "The home for Crystal's essays, talks, media, research, authorship, and public voice around climate-responsive design, indigenous modern architecture, African cities, entrepreneurship, and the built environment.",
-    audience:
-      "For event organizers, media teams, institutions, clients, and collaborators looking for a clear voice on the future of African spaces.",
-    href: "https://tedxportharcourt.com/speakers/a01411ad-22eb-4e92-9f94-6867a1f1446b",
-    cta: "View speaking profile",
-  },
-];
+const studio = {
+  eyebrow: "Architecture / Interiors / Urban design",
+  name: "Studio COKA",
+  description:
+    "The design practice at the center of the ecosystem. From homes and interiors to civic and institutional work, Studio COKA turns Crystal's climate-responsive, context-led point of view into places people can use and feel.",
+  audience:
+    "For clients, developers, and institutions ready to shape a place around its people, climate, and culture.",
+  href: "https://studiocoka.com/",
+  cta: "Explore Studio COKA",
+};
 
-const projects = [
+const ecosystemLanes = [
   {
-    title: "Nature Home 2",
-    type: "Private residence / Enugu, Nigeria",
-    image: "/Other assets/Nature Home 2/1.png",
-    detail:
-      "A seven-bedroom home designed around orientation, generous openings, cross ventilation, high ceilings, shading, trees, and daylight. The result is a larger home with lower grid dependence and calmer daily living.",
+    title: "Objects",
+    connection: "Bring thoughtful design into everyday reach.",
+    initiatives: [
+      {
+        name: "ELEvated",
+        description:
+          "Furniture and products that carry spatial thinking into the objects people live with: useful, material-aware, and rooted in African context.",
+        audience: "For homeowners, hospitality spaces, and design-conscious buyers.",
+        href: "mailto:crystallhomes@gmail.com?subject=ELEvated%20product%20enquiry",
+        cta: "Ask about ELEvated",
+      },
+    ],
   },
   {
-    title: "Interior Rhythm",
-    type: "Residential interior study",
-    image: "/Other assets/Nature Home 2/3.jpeg",
-    detail:
-      "Warm material choices, indoor-outdoor connection, and spatial restraint show how interiors can improve mood, comfort, and the everyday rituals of a home.",
+    title: "Learning & ideas",
+    connection: "Share knowledge and make better practice possible.",
+    initiatives: [
+      {
+        name: "The Effective Architect",
+        description:
+          "A learning and media platform sharing frameworks for climate-responsive design, career growth, and building a more grounded architectural practice.",
+        audience: "For students, architects, designers, and built-environment professionals.",
+        href: "https://lnkd.in/emqe3r9U",
+        cta: "Learn with TEA",
+      },
+      {
+        name: "Research, writing & speaking",
+        description:
+          "Crystal's public work explores African architecture, indigenous modernity, local materials, future cities, and design leadership.",
+        audience: "For event organizers, media, institutions, and research collaborators.",
+        href: "https://tedxportharcourt.com/speakers/a01411ad-22eb-4e92-9f94-6867a1f1446b",
+        cta: "Explore speaking",
+      },
+    ],
   },
   {
-    title: "Kasa Kofo",
-    type: "Community centre / Casamance, Senegal",
-    image: "/Other assets/Community Centre Project/IMG_2041 2.PNG",
-    detail:
-      "A cultural and learning centre concept using local materials, natural light, cooling, rainwater thinking, and forms inspired by indigenous Senegalese architecture.",
-  },
-];
-
-const pathways = [
-  {
-    audience: "I want to build",
-    action: "Start with Studio COKA",
-    detail:
-      "Share the site, brief, budget, and goals for a home, interior, institution, hospitality space, or civic project.",
-    href: "https://studiocoka.com/services",
-  },
-  {
-    audience: "I want to learn",
-    action: "Follow The Effective Architect",
-    detail:
-      "Join the education lane for climate-responsive design frameworks, career insight, and practice-building ideas.",
-    href: "https://lnkd.in/emqe3r9U",
-  },
-  {
-    audience: "I need a speaker",
-    action: "Invite Crystal",
-    detail:
-      "Book a talk or conversation on architecture, African cities, climate-responsive design, indigenous materials, or entrepreneurship.",
-    href: "https://tedxportharcourt.com/speakers/a01411ad-22eb-4e92-9f94-6867a1f1446b",
-  },
-  {
-    audience: "I want to partner",
-    action: "Support impact work",
-    detail:
-      "Explore collaborations with AKO Alliance or Alive and Free across education, youth formation, faith, and opportunity.",
-    href: "#contact",
+    title: "People & possibility",
+    connection: "Put opportunity, belonging, and growth at the center.",
+    initiatives: [
+      {
+        name: "AKO Alliance",
+        description:
+          "An education-focused initiative helping children and young people access opportunity, return to school, and build stronger futures.",
+        audience: "For education partners, donors, and volunteers.",
+        href: "mailto:crystallhomes@gmail.com?subject=AKO%20Alliance%20partnership",
+        cta: "Partner with AKO",
+      },
+      {
+        name: "Alive and Free",
+        description:
+          "A Christian youth movement creating space for worship, honest conversation, restoration, identity, and purpose.",
+        audience: "For young people, churches, and community partners.",
+        href: "mailto:crystallhomes@gmail.com?subject=Alive%20and%20Free%20enquiry",
+        cta: "Connect with the movement",
+      },
+    ],
   },
 ];
 
@@ -287,51 +238,91 @@ export default function Home() {
                 Ecosystem
               </p>
               <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
-                One personal brand. Six clear destinations.
+                One point of view, expressed in different ways.
               </h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-[#65584b] lg:pt-12">
-              Each brand has its own audience and purpose. Together, they form
-              a practical ecosystem for better spaces, better objects, better
-              professional learning, and better opportunities for young people.
+              Crystal&apos;s work starts with how people live and what their
+              context needs. The studio puts that thinking into places; the
+              connected initiatives extend it through objects, shared knowledge,
+              and investment in people.
             </p>
           </div>
 
-          <div className="mt-14 grid border-t border-[#211c17]/14 lg:grid-cols-2">
-            {ecosystem.map((item) => (
-              <article
-                key={item.name}
-                className="grid gap-5 border-b border-[#211c17]/14 py-8 lg:grid-cols-[1fr_2.2fr] lg:odd:border-r lg:odd:pr-10 lg:even:pl-10"
-              >
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8d5a2b]">
-                    {item.eyebrow}
-                  </p>
-                  <span className="mt-4 inline-flex border border-[#315140]/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#315140]">
-                    {item.status}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-semibold text-[#211c17]">
-                    {item.name}
+          <div className="mt-14 border-t border-[#211c17]/14">
+            <Link
+              href="/ecosystem"
+              className="group grid overflow-hidden bg-[#203428] text-[#fffaf2] transition-colors hover:bg-[#294333] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315140] md:grid-cols-[1.1fr_0.9fr]"
+            >
+              <div className="relative aspect-4/3 overflow-hidden bg-[#d5c9b7] md:aspect-auto md:min-h-105">
+                <Image
+                  src="/Other assets/Nature Home 2/1.png"
+                  alt="A climate-responsive home opening onto a shaded garden"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 55vw"
+                  className="object-cover transition duration-700 group-hover:scale-[1.03]"
+                />
+                <span className="absolute left-4 top-4 bg-[#211c17]/80 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+                  The design practice
+                </span>
+              </div>
+              <div className="flex flex-col justify-center px-6 py-8 sm:px-10 sm:py-12">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d8a15d]">
+                  Architecture / Interiors / Urban design
+                </p>
+                <h3 className="mt-4 text-3xl font-semibold sm:text-4xl">
+                  {studio.name}
+                </h3>
+                <p className="mt-5 max-w-xl text-base leading-7 text-white/78">
+                  {studio.description}
+                </p>
+                <span className="mt-8 inline-flex w-fit items-center border-b border-[#d8a15d] pb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#f1bd7d]">
+                  Explore the ecosystem <span className="ml-3" aria-hidden="true">→</span>
+                </span>
+              </div>
+            </Link>
+
+            <div className="grid md:grid-cols-3">
+              {ecosystemLanes.map((lane) => (
+                <section
+                  key={lane.title}
+                  className="border-b border-[#211c17]/14 py-7 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+                >
+                  <h3 className="text-xl font-semibold text-[#211c17]">
+                    {lane.title}
                   </h3>
-                  <p className="mt-4 max-w-xl text-base leading-7 text-[#65584b]">
-                    {item.description}
+                  <p className="mt-2 text-sm leading-6 text-[#65584b]">
+                    {lane.connection}
                   </p>
-                  <p className="mt-5 max-w-xl text-sm leading-6 text-[#4b4035]">
-                    {item.audience}
-                  </p>
-                  <a
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="mt-6 inline-flex text-sm font-semibold uppercase tracking-[0.14em] text-[#315140] transition hover:text-[#8d5a2b]"
-                  >
-                    {item.cta}
-                  </a>
-                </div>
-              </article>
-            ))}
+                  <div className="mt-5">
+                    {lane.initiatives.map((initiative) => (
+                      <article
+                        key={initiative.name}
+                        className="border-t border-[#211c17]/14 py-5 last:pb-0"
+                      >
+                        <h4 className="text-lg font-semibold text-[#211c17]">
+                          {initiative.name}
+                        </h4>
+                        <p className="mt-3 text-sm leading-6 text-[#65584b]">
+                          {initiative.description}
+                        </p>
+                        <p className="mt-3 text-sm leading-6 text-[#4b4035]">
+                          {initiative.audience}
+                        </p>
+                        <a
+                          href={initiative.href}
+                          target={initiative.href.startsWith("http") ? "_blank" : undefined}
+                          rel={initiative.href.startsWith("http") ? "noreferrer" : undefined}
+                          className="mt-4 inline-flex text-sm font-semibold uppercase tracking-[0.12em] text-[#315140] transition hover:text-[#8d5a2b]"
+                        >
+                          {initiative.cta}
+                        </a>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -347,20 +338,28 @@ export default function Home() {
                 Built and imagined spaces with measurable intent.
               </h2>
             </div>
-            <p className="max-w-md text-base leading-7 text-[#65584b]">
-              The strongest proof of the brand is not a slogan. It is the
-              repeated interest in buildings that use climate, material,
-              daylight, air, and culture as serious design tools.
-            </p>
+            <div className="max-w-md">
+              <p className="text-base leading-7 text-[#65584b]">
+                The strongest proof of the brand is not a slogan. It is the
+                repeated interest in buildings that use climate, material,
+                daylight, air, and culture as serious design tools.
+              </p>
+              <Link
+                href="/work"
+                className="mt-5 inline-flex text-sm font-semibold uppercase tracking-[0.12em] text-[#315140] transition hover:text-[#8d5a2b]"
+              >
+                View selected work <span className="ml-3" aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {projects.map((project) => (
+            {workProjects.map((project) => (
               <article key={project.title} className="group">
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#d5c9b7]">
+                <div className="relative aspect-4/5 overflow-hidden bg-[#d5c9b7]">
                   <Image
-                    src={project.image}
-                    alt={`${project.title}: ${project.type}`}
+                    src={project.images[0].src}
+                    alt={`${project.title}: ${project.images[0].alt}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition duration-500 group-hover:scale-[1.03]"
@@ -368,13 +367,13 @@ export default function Home() {
                 </div>
                 <div className="border-b border-[#211c17]/18 py-5">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8d5a2b]">
-                    {project.type}
+                    {project.type} / {project.location}
                   </p>
                   <h3 className="mt-2 text-xl font-semibold">
                     {project.title}
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-[#65584b]">
-                    {project.detail}
+                    {project.summary}
                   </p>
                 </div>
               </article>
@@ -435,45 +434,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pathways" className="bg-[#fffaf2] py-20 sm:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.65fr_1fr] lg:px-10">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#8d5a2b]">
-              Where to go next
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
-              Choose the path that matches your intent.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-[#65584b]">
-              Whether you are building, learning, inviting, or partnering, the
-              page points you toward the most relevant part of Crystal&apos;s
-              ecosystem.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {pathways.map((pathway) => (
-              <a
-                key={pathway.audience}
-                href={pathway.href}
-                target={pathway.href.startsWith("http") ? "_blank" : undefined}
-                rel={pathway.href.startsWith("http") ? "noreferrer" : undefined}
-                className="border border-[#211c17]/14 bg-[#f6f1e9] p-6 transition hover:border-[#315140]/50 hover:bg-[#efe5d5]"
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8d5a2b]">
-                  {pathway.audience}
-                </p>
-                <h3 className="mt-5 text-2xl font-semibold">
-                  {pathway.action}
-                </h3>
-                <p className="mt-4 text-sm leading-6 text-[#65584b]">
-                  {pathway.detail}
-                </p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PathwayGuide />
 
       <section id="contact" className="bg-[#f6f1e9] py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_0.74fr] lg:px-10">
