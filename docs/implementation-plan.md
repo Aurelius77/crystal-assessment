@@ -54,7 +54,15 @@ Create clear routes for different visitors:
 ### AI Product Thinking
 
 - Choose one initiative and propose one AI-powered tool.
-- Recommended direction: The Effective Architect AI mentor.
+- Lead candidate: a `The Effective Architect Strategic Assistant`, a project-planning partner rather than a design critic or general AI mentor.
+- Audience: architects and built-environment teams, especially early-career professionals and small practices handling complex briefs with limited strategic support.
+- Core job: synthesize a project brief, surface assumptions and missing information, compare a small set of strategic options with tradeoffs, and turn the chosen direction into sequenced next actions.
+- First version: a text-only workflow that collects project stage, location/climate, users, priorities, and constraints. Return a concise brief synthesis, unresolved questions, 2-3 options with tradeoffs, risks, and a next-step plan. Ground guidance in a curated TEA knowledge base using retrieval, attach source references, and test with practicing architects.
+- Safeguards: do not accept confidential drawings or client documents in the first version; avoid claiming code, structural, cost, or safety compliance; disclose uncertainty, cite reviewed sources, and let the architect own decisions. Keep project data out of persistent storage in the pilot unless users explicitly opt in.
+- Alternatives considered:
+  - `Studio COKA Project Brief Builder`: help prospective clients organize goals, site conditions, budget, and constraints before an enquiry. Strong conversion value, but must not imply that AI has assessed a site or cost accurately.
+  - `ELEvated Product Matcher`: suggest furniture based on room dimensions, use, and material preferences. Useful for buyers, but depends on a reliable product catalogue and accurate dimensions.
+  - `AKO Opportunity Navigator`: guide families and partners to relevant education opportunities and next steps. High potential impact, but needs verified, current local information and careful handling of minors' data.
 - Keep the final answer under 300 words.
 
 ### Analytics & Improvement

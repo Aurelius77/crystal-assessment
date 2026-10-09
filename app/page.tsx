@@ -122,7 +122,19 @@ export default function Home() {
             <a href="#contact" className="transition hover:text-white">
               Contact
             </a>
+            <Link
+              href="/tea-strategic-assistant"
+              className="border border-white/35 px-3 py-2 text-white transition hover:border-[#d8a15d] hover:text-[#f1bd7d]"
+            >
+              TEA Assistant
+            </Link>
           </div>
+          <Link
+            href="/tea-strategic-assistant"
+            className="inline-flex min-h-10 items-center border border-white/35 px-3 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:border-[#d8a15d] hover:text-[#f1bd7d] md:hidden"
+          >
+            TEA Assistant
+          </Link>
         </nav>
 
         <div
